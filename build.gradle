@@ -1,0 +1,16 @@
+apply plugin: 'groovy'
+
+ext.groovyVersion = '2.0.5'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.codehaus.groovy:groovy-all:${ext.groovyVersion}"
+}
+
+task run(dependsOn: 'classes', type: JavaExec) {
+    main = 'edu.kirkley.sample.HelloGroovy'
+    classpath = sourceSets.main.runtimeClasspath
+}
